@@ -4,10 +4,25 @@
 
 <h1>testing board page</h1>
 
-{% for row in board %}
 
-<table>{{row}}</table>
+<table class="board">
+  <tbody>
+    {% for row in board %}
+    <tr>
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>    
+</table>
 
-{% endfor %}
+<br>
+
+<form action="POST">
+    <label for="guess">Submit your guess</label>
+    <input type="text" id="guess" name="guess">
+    <input type="submit" id="">
+</form>
 
 {% endblock %}
