@@ -4,12 +4,10 @@
 
 <h1>testing board page</h1>
 
+{% for row in board %}
 
-{% for row in {{bpard %}}}
-
-<p>{{board}}</p>
+<table>{{row}}</table>
 
 {% endfor %}
-
 
 {% endblock %}
