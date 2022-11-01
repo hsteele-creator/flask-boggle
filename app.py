@@ -10,4 +10,5 @@ app.config['SECRET_KEY'] = "secret key"
 def display_board():
     session["board"] = Boggle.make_board(Boggle)
     return render_template("board.html", board = Boggle.make_board(Boggle))
+
     

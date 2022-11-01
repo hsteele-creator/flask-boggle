@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+
 {% block title %} <title> display boggle board  </title>{% endblock %}
 
 {% block content %}  
@@ -19,7 +21,7 @@
 
 <br>
 
-<form action="POST">
+<form method="POST" id="submit_guess">
     <label for="guess">Submit your guess</label>
     <input type="text" id="guess" name="guess">
     <input type="submit" id="">
