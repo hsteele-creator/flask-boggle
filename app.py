@@ -17,6 +17,9 @@ def display_board():
 def check_guess():
     """checks if the user guess is valid"""
     guess = request.args["guess"] 
-    return Boggle().check_valid_word(session["board"], guess)  
+    board = session["board"]
+    if Boggle().check_valid_word(board, guess) == 'ok':
+        session["score"] += len(guess)
+    return Boggle().check_valid_word(board, guess)
     # return str(Boggle().find(session["board"], guess))
-    
+

@@ -10,7 +10,7 @@ class FlaskTests(TestCase):
     def test_display_board(self):
         with app.test_client() as client:
             res = client.get("/")
-            html = res.get_data()
             self.assertEqual(res.status_code, 200)
+            self.assertIn("board", session)
         
 
