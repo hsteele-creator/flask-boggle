@@ -4,7 +4,7 @@
 
 {% block content %}  
 
-<h1>testing board page</h1>
+<h1>Your Score: {{score}}</h1>
 
 
 <table class="board">
@@ -21,7 +21,7 @@
 
 <br>
 
-<form method="POST" id="submit_guess">
+<form method="GET" action="/check-guess" id="submit_guess">
     <label for="guess">Submit your guess</label>
     <input type="text" id="guess" name="guess">
     <input type="submit" id="">
