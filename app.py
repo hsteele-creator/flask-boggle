@@ -1,5 +1,5 @@
 from boggle import Boggle
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, jsonify
 
 app = Flask(__name__)
 boggle_game = Boggle()
@@ -18,8 +18,7 @@ def check_guess():
     """checks if the user guess is valid"""
     guess = request.args["guess"] 
     board = session["board"]
-    if Boggle().check_valid_word(board, guess) == 'ok':
-        session["score"] += len(guess)
-    return Boggle().check_valid_word(board, guess)
+    result = Boggle().check_valid_word(board, guess)
+    return jsonify({"result": result})
     # return str(Boggle().find(session["board"], guess))
 

@@ -1,9 +1,14 @@
-$("#submit-guess").on("submit", function(e) {
-    e.preventDefault()
-    console.log("hello")
-})
+$("#submit_guess").on("submit", async function(e) {
+    e.preventDefault();
+    const response = await axios("/check-guess", {params: {guess: guess}})
 
-$("#submit-guess").prop("disabled", true);
-setTimeout(function() {
-   $("#submit-guess").prop("disabled", false);
-}, 60000);
+    if(response.data.result === "ok") {
+        console.log("ok")
+    } else if(response.data.result === "not-word") {
+
+        console.log("not a word")
+
+    } else if (response.data.result === "not-on-board") {
+        console.log("not on board")
+    }
+})
