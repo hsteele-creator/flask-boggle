@@ -3,11 +3,11 @@ localStorage.setItem("score", 0)
 $("#submit_guess").on("submit", async function(e) {
     e.preventDefault();
     const response = await axios("/check-guess", {params: {guess: guess}})
-    console.log(response.data.result)
 
     if(response.data.result === "ok") {
+        const word = $("#guess").val()
         console.log("ok")
-        const newVal = Number(localStorage.getItem("score")) + length(guess);
+        const newVal = Number(localStorage.getItem("score")) + word.length;
         $(".score").text(`your score: ${newVal}`)
 
 
@@ -23,8 +23,9 @@ $("#submit_guess").on("submit", async function(e) {
 
 
 const disable = function() {
+    $("#guess").prop('disabled', true)
     $("#submit").prop('disabled', true)
     $(".timed-out").text("Sorry you ran out of time!")
 }
 
-setTimeout(disable, 60000)
+setTimeout(disable, 1000)
