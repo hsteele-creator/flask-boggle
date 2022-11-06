@@ -4,6 +4,7 @@ from flask import Flask, render_template, session, request, jsonify
 app = Flask(__name__)
 boggle_game = Boggle()
 
+
 app.config['SECRET_KEY'] = "secret key"
 
 @app.route("/")
